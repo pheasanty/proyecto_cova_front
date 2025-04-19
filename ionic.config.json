@@ -1,0 +1,7 @@
+{
+  "name": "sdi_val_front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
