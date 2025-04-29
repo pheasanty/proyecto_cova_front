@@ -1,0 +1,19 @@
+<ion-content class="login-background" [fullscreen]="true">
+  <div class="login-container">
+    <img src="assets/logo.png" alt="Logo Mister Pollo" class="logo" />
+
+    <ion-item>
+      <ion-input [(ngModel)]="email" placeholder="Correo Electrónico" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="password" placeholder="Contraseña" type="password"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" (click)="login()">Acceder</ion-button>
+    <ion-button expand="block" fill="clear" color="light" (click)="goToRegister()">
+      ¿No tienes cuenta? Crear cuenta
+    </ion-button>
+    
+  </div>
+</ion-content>

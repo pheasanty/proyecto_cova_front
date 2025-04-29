@@ -1,0 +1,33 @@
+.login-background {
+    --background: linear-gradient(to bottom, orange, red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .logo {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+  
+  ion-item {
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+  }
+  
+  ion-button {
+    margin-top: 20px;
+  }
+  
+  .social-login {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+  

@@ -1,0 +1,23 @@
+<ion-content class="register-background" [fullscreen]="true">
+  <div class="register-container">
+    <h2>Crear Cuenta</h2>
+
+    <ion-item>
+      <ion-input [(ngModel)]="name" placeholder="Nombre completo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="email" placeholder="Correo electrónico" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="password" placeholder="Contraseña" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="password_confirmation" placeholder="Confirmar contraseña" type="password"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" (click)="register()">Registrar</ion-button>
+  </div>
+</ion-content>
