@@ -1,33 +1,87 @@
 .login-background {
-    --background: linear-gradient(to bottom, orange, red);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  --background: linear-gradient(to bottom, #f39c12, #f4511e);
+  background-image: url('/assets/fuego.png'); /* 🔥 Ruta correcta para Ionic */
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.login-container {
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+  color: #333;
+}
+
+.logo {
+  width: 150px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 10%;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.custom-input {
+  --background: #ffe082;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  ::placeholder {
+    color: #333;
   }
+}
+
+.login-button {
+  background: white;
+  color: black;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+
+.login {
+  color: #000
   
-  .login-container {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .logo {
-    width: 150px;
-    margin-bottom: 20px;
-  }
-  
-  ion-item {
-    margin-bottom: 10px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-  }
-  
-  ion-button {
-    margin-top: 20px;
-  }
-  
-  .social-login {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
-  }
-  
+}
+
+
+.custom-input {
+  --background: #ffe082;
+  --color: #000;
+  border-radius: 4px;
+  box-shadow: none;
+  --highlight-color-focused: transparent; /* quita línea de foco */
+}
+
+/* Fijar color del texto */
+ion-input::part(native) {
+  color: #000 !important;
+}
+
+/* Fijar color del placeholder */
+ion-input::part(native)::placeholder {
+  color: #000 !important;
+  opacity: 1;
+}
+
+/* Quitar sombra de focus */
+ion-item.custom-input.item-has-focus {
+  box-shadow: none !important;
+  --highlight-color-focused: transparent !important;
+  --background: #ffe082;
+}

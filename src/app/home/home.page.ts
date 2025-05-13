@@ -1,18 +1,15 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, AlertController, ToastController } from '@ionic/angular/standalone';
 import { AuthService } from '../services/auth.service';
-
+import { NavbarComponent } from '../components/navbar/navbar.component';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
   imports: [
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
-    IonButton
+    NavbarComponent,
+    IonContent
   ],
 })
 export class HomePage {

@@ -1,27 +1,59 @@
-#container {
-  text-align: center;
+.home-background {
+  --background: none;
+  background: linear-gradient(to bottom, #f39c12, #f4511e);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
+/* El fuego dentro del ion-content */
+.fuego-overlay {
   position: absolute;
+  bottom: 0;
   left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 100%;
+  height: 160px;
+  background-image: url('/assets/fuego.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  pointer-events: none; /* 🔒 asegura que no interfiera con clicks */
+  z-index: 0;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-content {
+  position: relative;
+  z-index: 1;
+  overflow: hidden; /* 🔒 evita que el fuego “se desborde” */
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+/* El resto de estilos como ya tenías */
+.main-logo-container {
+  text-align: center;
+  margin-top: 30px;
 }
 
-#container a {
-  text-decoration: none;
+.main-logo {
+  width: 200px;
+  border-radius: 15%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  opacity: 0.4; /* ✅ entre 0 (invisible) y 1 (completo) */
+}
+
+
+.bottom-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px 30px 180px 30px; /* 🔥 deja espacio para el fuego */
+}
+
+.home-button {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }

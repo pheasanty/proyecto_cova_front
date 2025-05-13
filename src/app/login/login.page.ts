@@ -7,6 +7,7 @@ import {
   IonInput,
   IonButton,
   IonIcon,
+  IonLabel, 
 } from '@ionic/angular/standalone';
 
 import { CommonModule } from '@angular/common';
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     IonContent,
     IonItem,
     IonInput,
+    IonLabel, 
     IonButton
   ]
   

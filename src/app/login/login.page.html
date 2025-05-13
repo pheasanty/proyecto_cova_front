@@ -1,19 +1,25 @@
 <ion-content class="login-background" [fullscreen]="true">
   <div class="login-container">
-    <img src="assets/logo.png" alt="Logo Mister Pollo" class="logo" />
 
-    <ion-item>
-      <ion-input [(ngModel)]="email" placeholder="Correo Electrónico" type="email"></ion-input>
-    </ion-item>
+    <h1>Bienvenido de nuevo</h1>
+    <p class="subtitle">Inicia sesión para continuar</p>
 
-    <ion-item>
-      <ion-input [(ngModel)]="password" placeholder="Contraseña" type="password"></ion-input>
-    </ion-item>
+    <img src="assets/logo.webp" alt="Logo Mister Pollo" class="logo" />
 
-    <ion-button expand="block" (click)="login()">Acceder</ion-button>
-    <ion-button expand="block" fill="clear" color="light" (click)="goToRegister()">
-      ¿No tienes cuenta? Crear cuenta
-    </ion-button>
-    
+    <form (ngSubmit)="login()">
+
+      <ion-item class="custom-input">
+        <ion-label position="floating" class="login">CORREO ELECTRÓNICO</ion-label>
+        <ion-input [(ngModel)]="email" name="email" type="email" required class="login"></ion-input>
+      </ion-item>
+
+      <ion-item class="custom-input">
+        <ion-label position="floating" class="login">CLAVE</ion-label>
+        <ion-input [(ngModel)]="password" name="password" type="password" required class="login"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" class="login-button">Accede</ion-button>
+    </form>
+
   </div>
 </ion-content>

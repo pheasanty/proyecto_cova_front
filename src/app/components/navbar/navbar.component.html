@@ -1,0 +1,13 @@
+<div class="navbar">
+  <img src="assets/banner.webp" alt="Logo Mister Pollo" class="top-logo" />
+
+  <div class="menu">
+    <div class="dropdown" *ngFor="let item of menu">
+      <button class="dropbtn">{{ item.label }} ⌄</button>
+      <div class="dropdown-content">
+        <a *ngFor="let sub of item.items" [routerLink]="sub.link">{{ sub.label }}</a>
+      </div>
+
+    </div>
+  </div>
+</div>

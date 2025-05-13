@@ -1,0 +1,62 @@
+.navbar {
+    background: #d32f2f;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* separa logo a la izquierda y menú a la derecha */
+    flex-wrap: wrap;
+  }
+  
+  .top-logo {
+    height: 60px;
+    margin-right: 20px;
+  }
+  
+  
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropbtn {
+    background-color: #fdd835;
+    color: #000;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    z-index: 1;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 5px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 8px 12px;
+    display: block;
+    text-align: left;
+    text-decoration: none;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
