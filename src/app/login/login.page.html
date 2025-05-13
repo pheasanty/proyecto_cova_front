@@ -11,15 +11,14 @@
       <ion-item class="custom-input">
         <ion-label position="floating" class="login">CORREO ELECTRÓNICO</ion-label>
         <ion-input [(ngModel)]="email" name="email" type="email" required class="login"></ion-input>
-      </ion-item>
-
-      <ion-item class="custom-input">
+        
         <ion-label position="floating" class="login">CLAVE</ion-label>
         <ion-input [(ngModel)]="password" name="password" type="password" required class="login"></ion-input>
       </ion-item>
 
       <ion-button expand="block" type="submit" class="login-button">Accede</ion-button>
     </form>
-
+    <ion-button expand="block" fill="clear" color="light" (click)="goToRegister()">¿No tienes cuenta? Crear cuenta</ion-button>
+    
   </div>
 </ion-content>

@@ -1,15 +1,69 @@
 .register-background {
-    background: linear-gradient(to bottom, #f39c12, #e74c3c);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .register-container {
-    width: 90%;
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
-  }
-  
+  --background: none;
+  background: linear-gradient(to bottom, #f39c12, #f4511e);
+  position: relative;
+}
+
+.register-container {
+  width: 90%;
+  max-width: 400px;
+  margin: 40px auto;
+  padding-bottom: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 1;
+  position: relative;
+  text-align: center;
+}
+
+.register-logo {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+ion-item {
+  --background: #ffe082;
+  border-radius: 6px;
+  margin: 0 auto;
+}
+
+ion-input {
+  --color: #000;
+  font-weight: 500;
+}
+
+ion-button {
+  background-color: #448aff;
+  color: black;
+  font-weight: bold;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+/* fuego fijo al fondo */
+.fuego-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background-image: url('/assets/fuego.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.back-button {
+  align-self: flex-start;
+  margin-top: 10px;
+  margin-left: 10px;
+  color: white;
+  font-weight: bold;
+  text-transform: none;
+}

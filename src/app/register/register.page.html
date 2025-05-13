@@ -1,5 +1,12 @@
 <ion-content class="register-background" [fullscreen]="true">
   <div class="register-container">
+    <img src="assets/banner.webp" alt="Logo Mister Pollo" class="register-logo" />
+
+    <ion-button fill="clear" size="small" class="back-button" (click)="goBack()">
+      ← Volver
+    </ion-button>
+    
+    
     <h2>Crear Cuenta</h2>
 
     <ion-item>
@@ -20,4 +27,6 @@
 
     <ion-button expand="block" (click)="register()">Registrar</ion-button>
   </div>
+  <div class="fuego-overlay"></div>
+
 </ion-content>

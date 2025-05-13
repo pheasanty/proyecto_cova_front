@@ -90,4 +90,9 @@ export class RegisterPage {
       }
     });
   }
+
+  goBack() {
+    this.router.navigate(['/login']);
+  }
+  
 }
