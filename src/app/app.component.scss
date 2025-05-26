@@ -1,0 +1,6 @@
+/* El contenido crece al lado del navbar */
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+}

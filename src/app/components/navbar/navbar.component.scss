@@ -1,104 +1,65 @@
 .navbar {
-    background: #d32f2f;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* separa logo a la izquierda y menú a la derecha */
-    flex-wrap: wrap;
-      position: relative;
-  z-index: 1000; /* o más */
-  }
-  
-  .top-logo {
-    height: 60px;
-    margin-right: 20px;
-    border-radius: 10%;
-  }
-  
-  
-  .menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-  }
-  
-  .dropdown {
-    position: relative;
-    
-  }
-  
-  .dropbtn {
-    background-color: #fdd835;
-    color: #000;
-    font-weight: bold;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    min-width: 160px;
-    z-index: 9999 !important;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    border-radius: 5px;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 8px 12px;
-    display: block;
-    text-align: left;
-    text-decoration: none;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-
-  .dropdown-menu, .submenu {
-  z-index: 9999 !important;
-  position: absolute;
-}
-
-
-.dropdown.perfil {
-  position: relative;
-}
-
-
-/* Solución específica para menú Perfil */
-.dropdown.perfil .dropdown-content {
-  right: 0;
-  left: auto;
-  transform: translateX(0);
-  z-index: 9999;
-}
-
-.menu-button {
-  background-color: #fdd835;
-  color: black;
-  font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 4px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  z-index: 1000;
 }
 
-/* Reutiliza esta clase en todos los botones: Inicio y dropdown */
-.dropbtn, .direct-link {
-  @extend .menu-button; /* si usas SCSS */
+.top-logo {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.direct-link {
+  display: block;
+  padding: 10px;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+  background: transparent;
+  text-align: left;
+  width: 100%;
+}
+
+.direct-link:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.dropdown-content a {
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #555;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.dropdown-content a:hover {
+  background-color: #eaeaea;
 }

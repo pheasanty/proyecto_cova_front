@@ -41,26 +41,45 @@ export class LoginPage implements OnInit {
     this.checkIfAuthenticated();
   }
 
-  checkIfAuthenticated() {
-    const token = localStorage.getItem('access_token');
-    if (token) {
-      // 🔥 Si hay token, redirige al Home
-      this.router.navigate(['/home']);
+checkIfAuthenticated() {
+  const token = localStorage.getItem('access_token');
+  if (token) {
+    const rol = this.authService.getRole();
+
+    if (rol === 'admin') {
+      this.router.navigate(['/app/home']);
+    } else if (rol === 'veterinario') {
+      this.router.navigate(['/app/home']);
+    } else if (rol === 'ordeñador') {
+      this.router.navigate(['/app/home']);
     }
   }
+}
 
-  login() {
-    this.authService.login(this.email, this.password).subscribe({
-      next: (res) => {
-        console.log('Login exitoso:', res);
-        this.router.navigate(['/home']);
-      },
-      error: (err) => {
-        console.error('Error en login:', err);
-        alert('Correo o contraseña incorrectos');
+
+login() {
+  this.authService.login(this.email, this.password).subscribe({
+    next: () => {
+      const rol = this.authService.getRole();
+
+      if (rol === 'admin') {
+        this.router.navigate(['/app/home']);
+      } else if (rol === 'veterinario') {
+        this.router.navigate(['/app/home']);
+      } else if (rol === 'ordeñador') {
+        this.router.navigate(['/app/home']);
+      } else {
+        this.router.navigate(['/login']);
       }
-    });
-  }
+    },
+    error: (err) => {
+      console.error('Error en login:', err);
+      alert('Correo o contraseña incorrectos');
+    }
+  });
+}
+
+
   goToRegister() {
     this.router.navigate(['/register']); // 🔥 Navega a la página de registro
   }

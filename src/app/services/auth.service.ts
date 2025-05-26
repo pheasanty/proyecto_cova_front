@@ -11,26 +11,25 @@ export class AuthService {
 
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
 
-  private apiUrl = 'http://127.0.0.1:8000/api'; // Cambia por tu API real
+  private apiUrl = 'http://127.0.0.1:8000/api'; // Ajusta si cambia
 
   constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, { email, password })
-      .pipe(
-        tap(response => {
-          localStorage.setItem('access_token', response.access_token);
-          this.isLoggedInSubject.next(true);
-        })
-      );
+    return this.http.post<any>(`${this.apiUrl}/login`, { email, password }).pipe(
+      tap(response => {
+        // Guarda el token y el usuario
+        localStorage.setItem('access_token', response.access_token);
+        localStorage.setItem('user', JSON.stringify(response.user));
+        this.isLoggedInSubject.next(true);
+      })
+    );
   }
 
   logout() {
-    // 🔥 Borrar token
     localStorage.removeItem('access_token');
+    localStorage.removeItem('user');
     this.isLoggedInSubject.next(false);
-
-    // 🔥 Redirigir al login
     this.router.navigate(['/login']);
   }
 
@@ -38,7 +37,25 @@ export class AuthService {
     return this.isLoggedInSubject.asObservable();
   }
 
-  private hasToken(): boolean {
+  getToken(): string | null {
+    return localStorage.getItem('access_token');
+  }
+
+getUser(): any {
+  const userStr = localStorage.getItem('user');
+  try {
+    return userStr ? JSON.parse(userStr) : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+getRole(): string | null {
+  return this.getUser()?.rol || null;
+}
+
+
+  hasToken(): boolean {
     return !!localStorage.getItem('access_token');
   }
 }

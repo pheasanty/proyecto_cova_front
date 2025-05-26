@@ -1,35 +1,41 @@
 <div class="navbar">
+  <!-- Logo arriba -->
   <img src="assets/banner.webp" alt="Logo Mister Pollo" class="top-logo" />
 
+  <!-- Menú -->
   <div class="menu">
     <ng-container *ngFor="let item of menu">
+  <ng-container *ngIf="showItem(item.label)">
+
       
-      <!-- 🔹 Caso con solo 1 item: botón directo -->
+      <!-- 🔹 Ítem con un solo enlace -->
       <a *ngIf="item.items.length === 1"
          class="direct-link"
          [routerLink]="item.items[0].link">
         {{ item.label }}
       </a>
 
-      <!-- 🔻 Dropdown normal -->
-      <div class="dropdown" [ngClass]="{ 'perfil': item.label === 'Perfil' }" *ngIf="item.items.length > 1">
-        <button class="direct-link">{{ item.label }} ⌄</button>
-          <div class="dropdown-content">
-            <ng-container *ngFor="let sub of item.items">
-              <!-- Mostrar link normal -->
-              
-              <a *ngIf="sub.label !== 'Cerrar Sesión'" [routerLink]="sub.link">
-                {{ sub.label }}
-              </a>
+            <!-- Dropdown normal -->
+      <div class="dropdown" *ngIf="item.items.length > 1">
+        <button class="direct-link" (click)="toggleDropdown(item.label)">
+          {{ item.label }} <span [innerHTML]="openDropdown === item.label ? '▲' : '>'"></span>
+        </button>
 
-              <!-- Botón de logout -->
-              <a *ngIf="sub.label === 'Cerrar Sesión'" (click)="logout()">
-                {{ sub.label }}
-              </a>
-            </ng-container>
-          </div>
+        <div class="dropdown-content" *ngIf="openDropdown === item.label">
+          <ng-container *ngFor="let sub of item.items">
+            <a *ngIf="sub.label !== 'Cerrar Sesión'" [routerLink]="sub.link">
+              {{ sub.label }}
+            </a>
+            <a *ngIf="sub.label === 'Cerrar Sesión'" (click)="logout()">
+              {{ sub.label }}
+            </a>
+          </ng-container>
+        </div>
       </div>
 
-    </ng-container>
+
+     </ng-container>
+</ng-container>
+
   </div>
 </div>

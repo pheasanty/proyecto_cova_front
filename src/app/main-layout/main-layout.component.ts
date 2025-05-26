@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [NavbarComponent, RouterOutlet,IonicModule],
+  imports: [NavbarComponent, RouterOutlet,IonicModule,],
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss']
 })

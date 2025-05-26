@@ -1,8 +1,9 @@
-<ion-content class="home-background" [fullscreen]="true">
-  <app-navbar></app-navbar>
+<ion-content>
+  <div class="layout-container">
+    <app-navbar></app-navbar>
 
-  <!-- 🔁 Aquí se inyectan los contenidos de las rutas hijas -->
-  <router-outlet></router-outlet>
-
-  <div class="fuego-overlay"></div>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </ion-content>
