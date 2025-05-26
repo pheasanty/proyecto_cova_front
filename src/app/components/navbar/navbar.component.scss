@@ -5,11 +5,14 @@
     align-items: center;
     justify-content: space-between; /* separa logo a la izquierda y menú a la derecha */
     flex-wrap: wrap;
+      position: relative;
+  z-index: 1000; /* o más */
   }
   
   .top-logo {
     height: 60px;
     margin-right: 20px;
+    border-radius: 10%;
   }
   
   
@@ -18,10 +21,12 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    padding: 10px;
   }
   
   .dropdown {
     position: relative;
+    
   }
   
   .dropbtn {
@@ -39,7 +44,7 @@
     position: absolute;
     background-color: #fff;
     min-width: 160px;
-    z-index: 1;
+    z-index: 9999 !important;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     border-radius: 5px;
   }
@@ -60,3 +65,40 @@
     display: block;
   }
   
+
+  .dropdown-menu, .submenu {
+  z-index: 9999 !important;
+  position: absolute;
+}
+
+
+.dropdown.perfil {
+  position: relative;
+}
+
+
+/* Solución específica para menú Perfil */
+.dropdown.perfil .dropdown-content {
+  right: 0;
+  left: auto;
+  transform: translateX(0);
+  z-index: 9999;
+}
+
+.menu-button {
+  background-color: #fdd835;
+  color: black;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Reutiliza esta clase en todos los botones: Inicio y dropdown */
+.dropbtn, .direct-link {
+  @extend .menu-button; /* si usas SCSS */
+}

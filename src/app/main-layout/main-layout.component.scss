@@ -1,0 +1,24 @@
+
+.home-background {
+  --background: none;
+  background: linear-gradient(to bottom, #f39c12, #f4511e);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+    overflow: hidden;
+}
+
+.fuego-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px; /* Ajusta según altura del fuego */
+  background-image: url('/assets/fuego.png'); /* Asegúrate de la ruta correcta */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  z-index: 1000; /* 🔥 ALTO para estar al frente */
+  pointer-events: none; /* 🔥 Permite hacer clic a través */
+}

@@ -2,12 +2,34 @@
   <img src="assets/banner.webp" alt="Logo Mister Pollo" class="top-logo" />
 
   <div class="menu">
-    <div class="dropdown" *ngFor="let item of menu">
-      <button class="dropbtn">{{ item.label }} ⌄</button>
-      <div class="dropdown-content">
-        <a *ngFor="let sub of item.items" [routerLink]="sub.link">{{ sub.label }}</a>
+    <ng-container *ngFor="let item of menu">
+      
+      <!-- 🔹 Caso con solo 1 item: botón directo -->
+      <a *ngIf="item.items.length === 1"
+         class="direct-link"
+         [routerLink]="item.items[0].link">
+        {{ item.label }}
+      </a>
+
+      <!-- 🔻 Dropdown normal -->
+      <div class="dropdown" [ngClass]="{ 'perfil': item.label === 'Perfil' }" *ngIf="item.items.length > 1">
+        <button class="direct-link">{{ item.label }} ⌄</button>
+          <div class="dropdown-content">
+            <ng-container *ngFor="let sub of item.items">
+              <!-- Mostrar link normal -->
+              
+              <a *ngIf="sub.label !== 'Cerrar Sesión'" [routerLink]="sub.link">
+                {{ sub.label }}
+              </a>
+
+              <!-- Botón de logout -->
+              <a *ngIf="sub.label === 'Cerrar Sesión'" (click)="logout()">
+                {{ sub.label }}
+              </a>
+            </ng-container>
+          </div>
       </div>
 
-    </div>
+    </ng-container>
   </div>
 </div>

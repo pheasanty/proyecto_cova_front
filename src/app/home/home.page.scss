@@ -1,3 +1,4 @@
+
 .home-background {
   --background: none;
   background: linear-gradient(to bottom, #f39c12, #f4511e);
@@ -5,22 +6,24 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+    overflow: hidden;
 }
 
-/* El fuego dentro del ion-content */
 .fuego-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 160px;
-  background-image: url('/assets/fuego.png');
+  height: 180px; /* Ajusta según altura del fuego */
+  background-image: url('/assets/fuego.png'); /* Asegúrate de la ruta correcta */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
-  pointer-events: none; /* 🔒 asegura que no interfiera con clicks */
-  z-index: 0;
+  z-index: 1000; /* 🔥 ALTO para estar al frente */
+  pointer-events: none; /* 🔥 Permite hacer clic a través */
 }
+
+
 
 ion-content {
   position: relative;
@@ -39,6 +42,7 @@ ion-content {
   border-radius: 15%;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   opacity: 0.4; /* ✅ entre 0 (invisible) y 1 (completo) */
+      margin-right: 30px;
 }
 
 

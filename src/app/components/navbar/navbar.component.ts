@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router'; // 👈 agrega esto
+import { AuthService } from 'src/app/services/auth.service';
+import { AlertController, ToastController } from '@ionic/angular/standalone';
+import { Router } from '@angular/router'; // 👈 agrega esto
 
 @Component({
   selector: 'app-navbar',
@@ -10,12 +13,25 @@ import { RouterModule } from '@angular/router'; // 👈 agrega esto
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+    constructor(
+    private authService: AuthService,
+    private alertController: AlertController,
+    private toastController: ToastController,
+    private router: Router)
+  {}
   menu = [
   {
+    label: 'Inicio',
+    items: [
+      { label: 'Dashboard', link: '/home' }
+    ]
+  },
+  
+   {
     label: 'Gestión de Inventario',
     items: [
-      { label: 'Inventario', link: '/inventario' },
-      { label: 'Categoría de productos', link: '/categorias' }
+      { label: 'Inventario', link: 'Gestioninv/inventario' },
+      { label: 'Categoría de productos', link: 'Gestioninv/categorias' }
     ]
   },
   {
@@ -30,14 +46,53 @@ export class NavbarComponent {
   {
     label: 'Gestión de Proveedores',
     items: [
-      { label: 'Proveedores', link: '/proveedores' },
-      { label: 'Orden de compra', link: '/ordenes' }
+      { label: 'Proveedores', link: '/GestionProv/proveedores' },
+      { label: 'Orden de compra', link: '/GestionProv/orden-compra' }
     ]
   },
-  {
-    label: 'Contacto con proveedores',
+    {
+    label: 'Perfil',
     items: [
-      { label: 'Buscar contacto con proveedor', link: '/contacto' }
+      { label: 'Ajustes', link: '/Ajustes' },
+      { label: 'Administración de Sistema', link: '/sysadmin' },
+      { label: 'Cerrar Sesión', link: '/logout' },
     ]
-  }
-];}
+  },
+  
+  
+];
+
+
+  async logout() {
+      const alert = await this.alertController.create({
+        header: '¿Cerrar sesión?',
+        message: '¿Estás seguro de que deseas salir?',
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel'
+          },
+          {
+            text: 'Salir',
+            handler: async () => {
+              this.authService.logout();
+
+              const toast = await this.toastController.create({
+                message: 'Has cerrado sesión correctamente.',
+                duration: 2000,
+                position: 'bottom',
+                color: 'success'
+              });
+
+              await toast.present();
+
+              this.router.navigate(['/login']); // redirigir al login
+            }
+          }
+        ]
+      });
+
+      await alert.present();
+    }
+}
+
