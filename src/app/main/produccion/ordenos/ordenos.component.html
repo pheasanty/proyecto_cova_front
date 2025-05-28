@@ -1,3 +1,55 @@
-<p>
-  ordenos works!
-</p>
+<!-- Fecha -->
+<!-- <ion-item>
+  <ion-label position="floating">Fecha</ion-label>
+  <ion-input [value]="form.fecha" readonly (click)="mostrarModalFecha()"></ion-input>
+</ion-item>
+
+
+<ion-item>
+  <ion-label position="floating">Hora</ion-label>
+  <ion-input [value]="form.hora" readonly (click)="mostrarModalHora()"></ion-input>
+</ion-item>
+
+
+<ion-modal [isOpen]="mostrarFecha" (didDismiss)="mostrarFecha = false">
+  <ng-template>
+    <ion-content>
+      <ion-datetime
+        presentation="date"
+        (ionChange)="seleccionarFecha($event)">
+      </ion-datetime>
+      <ion-button expand="block" (click)="cerrarModalFecha()">Aceptar</ion-button>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+
+<ion-modal [isOpen]="mostrarHora" (didDismiss)="mostrarHora = false">
+  <ng-template>
+    <ion-content>
+      <ion-datetime
+        presentation="time"
+        (ionChange)="seleccionarHora($event)">
+      </ion-datetime>
+      <ion-button expand="block" (click)="cerrarModalHora()">Aceptar</ion-button>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+  <ion-item>
+    <ion-label position="floating">ID de vaca</ion-label>
+    <ion-input [(ngModel)]="form.vaca_id"></ion-input>
+  </ion-item>
+
+      <ion-label position="floating">Cantidad (litros)</ion-label>
+    <ion-input type="number" [(ngModel)]="form.cantidad_litros"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Responsable</ion-label>
+    <ion-input [(ngModel)]="form.responsable"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="guardarOrdeno()">Guardar</ion-button> -->
+
+
