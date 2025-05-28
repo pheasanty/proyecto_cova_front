@@ -67,6 +67,15 @@ export class NavbarComponent implements OnInit {
         { label: 'Mi Cuenta', link: 'perfil' },
         { label: 'Cerrar Sesión', link: 'logout' }
       ]
+    },
+
+    {
+      label: 'Reportes',
+      items: [
+        { label: 'Producción Lechera', link: 'reportes/produccion' },
+        { label: 'Salud Animal', link: 'reportes/salud' },
+        { label: 'Reproducción', link: 'reportes/reproduccion' }
+      ]
     }
   ];
 
